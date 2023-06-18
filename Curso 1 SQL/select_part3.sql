@@ -1,0 +1,17 @@
+SELECT * FROM tbcliente;
+
+SELECT * FROM tbcliente WHERE EDAD > 27; 
+
+SELECT * FROM tbcliente WHERE EDAD <= 27; 
+
+SELECT * FROM tbcliente WHERE EDAD <> 27; 
+
+SELECT * FROM tbcliente WHERE NOMBRE > 'Erica Carvajo'; 
+
+SELECT * FROM tbproducto;
+
+SELECT * FROM tbproducto WHERE PRECIO_LISTA = 24.01;
+
+SELECT * FROM tbproducto WHERE PRECIO_LISTA > 24.01;
+
+SELECT * FROM tbproducto WHERE PRECIO_LISTA BETWEEN 23.30 AND 27.52;

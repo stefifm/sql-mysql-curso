@@ -1,0 +1,38 @@
+USE jugos;
+
+ALTER TABLE tbclientes ADD PRIMARY KEY(DNI);
+
+ALTER TABLE tbclientes ADD COLUMN(FECHA_NACIMIENTO DATE);
+
+INSERT INTO tbclientes (
+DNI,
+NOMBRE,
+DIRECCION1,
+DIRECCION2,
+BARRIO,
+CIUDAD,
+ESTADO,
+CP,
+EDAD,
+SEXO,
+LIMITE_CREDITO,
+VOLUMEN_COMPRA,
+PRIMERA_COMPRA,
+FECHA_NACIMIENTO) VALUES (
+'9283760794',
+'Edson Calisaya',
+'Sta Úrsula Xitla',
+' ',
+'Barrio del Niño Jesús',
+'Ciudad de México',
+'CDMX',
+'22002002',
+25,
+'M',
+150000,
+250000,
+0,
+'1995-10-07');
+
+SELECT * FROM tbclientes;
+
