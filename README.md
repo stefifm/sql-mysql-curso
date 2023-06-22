@@ -14,4 +14,15 @@ Además, consultas complejas, filtros, joins, subconsultas, vistas, transaccione
 - Agregando la clave primaria o primary key
 - Agregando columnas o campos
 - Consultando y comparando datos
-- Filtros simples y compuestos 
+- Filtros simples y compuestos
+
+## Consultas: Avanzando en SQL con MySQL
+- Consultas condicionales (AND, OR, NOT)
+- Usando like
+- Usos de CASE, DISTINCT, ORDER BY, LIMIT, GROUP BY, HAVING
+- Uso de JOIN
+- Views
+- Subconsultas
+- Unión de tablas con UNION y UNION ALL
+- Funciones de fecha, strings, matemáticas y de conversión de datos
+- Realizando informes
