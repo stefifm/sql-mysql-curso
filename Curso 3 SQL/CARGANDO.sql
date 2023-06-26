@@ -1,0 +1,23 @@
+INSERT INTO tb_factura
+VALUES
+('100',
+'2021-01-01',
+'1471156710',
+'235',
+0.1);
+
+INSERT INTO tb_factura
+VALUES
+('101',
+'2021-01-01',
+'1471156710',
+'235',
+0.1);
+
+INSERT INTO tb_factura
+VALUES
+('102',
+'2021-01-01',
+'1471156710',
+'235',
+0.1);

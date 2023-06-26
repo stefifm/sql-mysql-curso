@@ -1,0 +1,38 @@
+-- seleccionar la tabla de productos de jugos_ventas
+SELECT * FROM jugos_ventas.tabla_de_productos;
+
+-- tomamos cada campo de la tabla de productos y le colocamos un alias igual al de nuestra tb_productos
+SELECT CODIGO_DEL_PRODUCTO AS CODIGO, NOMBRE_DEL_PRODUCTO AS DESCRIPCION, SABOR, TAMANO, ENVASE, PRECIO_DE_LISTA AS PRECIO
+FROM jugos_ventas.tabla_de_productos;
+
+SELECT CODIGO_DEL_PRODUCTO AS CODIGO, NOMBRE_DEL_PRODUCTO AS DESCRIPCION, SABOR, TAMANO, ENVASE, PRECIO_DE_LISTA AS PRECIO
+FROM jugos_ventas.tabla_de_productos
+WHERE CODIGO_DEL_PRODUCTO NOT IN(SELECT CODIGO FROM tb_productos);
+
+-- usamos la ultima consulta para el insert en tb_productos. 
+-- respetar el orden y coincidan los campos
+
+INSERT INTO tb_productos
+SELECT CODIGO_DEL_PRODUCTO AS CODIGO, NOMBRE_DEL_PRODUCTO AS DESCRIPCION, SABOR, TAMANO, ENVASE, PRECIO_DE_LISTA AS PRECIO
+FROM jugos_ventas.tabla_de_productos
+WHERE CODIGO_DEL_PRODUCTO NOT IN(SELECT CODIGO FROM tb_productos);
+
+SELECT * FROM tb_productos;
+
+-- tabla de clientes
+SELECT * FROM jugos_ventas.tabla_de_clientes;
+
+SELECT DNI, NOMBRE, DIRECCION_1 AS DIRECCION, BARRIO, CIUDAD, ESTADO, CP, 
+FECHA_DE_NACIMIENTO AS FECHA_NACIMIENTO, EDAD, SEXO, LIMITE_DE_CREDITO AS LIMITE_CREDITO,
+VOLUMEN_DE_COMPRA AS VOLUMEN_COMPRA, PRIMERA_COMPRA
+FROM jugos_ventas.tabla_de_clientes
+WHERE DNI NOT IN (SELECT DNI FROM tb_clientes);
+
+INSERT INTO tb_clientes
+SELECT DNI, NOMBRE, DIRECCION_1 AS DIRECCION, BARRIO, CIUDAD, ESTADO, CP, 
+FECHA_DE_NACIMIENTO AS FECHA_NACIMIENTO, EDAD, SEXO, LIMITE_DE_CREDITO AS LIMITE_CREDITO,
+VOLUMEN_DE_COMPRA AS VOLUMEN_COMPRA, PRIMERA_COMPRA
+FROM jugos_ventas.tabla_de_clientes
+WHERE DNI NOT IN (SELECT DNI FROM tb_clientes);
+
+SELECT * FROM tb_clientes;

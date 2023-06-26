@@ -1,0 +1,124 @@
+CREATE TABLE tb_facturacion(
+FECHA DATE NULL,
+VENTA_TOTAL FLOAT
+);
+
+SELECT * FROM tb_facturacion;
+
+CREATE TABLE `tb_factura1` (
+  `NUMERO` varchar(5) NOT NULL,
+  `FECHA` date DEFAULT NULL,
+  `DNI` varchar(11) NOT NULL,
+  `MATRICULA` varchar(5) NOT NULL,
+  `IMPUESTO` float DEFAULT NULL,
+  PRIMARY KEY (`NUMERO`),
+  KEY `FK_CLIENTE1` (`DNI`),
+  KEY `FK_VENDEDOR1` (`MATRICULA`),
+  CONSTRAINT `FK_CLIENTE1` FOREIGN KEY (`DNI`) REFERENCES `tb_clientes` (`DNI`),
+  CONSTRAINT `FK_VENDEDOR1` FOREIGN KEY (`MATRICULA`) REFERENCES `tb_vendedor` (`MATRICULA`)
+);
+CREATE TABLE `tb_items_facturas1` (
+  `NUMERO` varchar(5) NOT NULL,
+  `CODIGO` varchar(10) NOT NULL,
+  `CANTIDAD` int DEFAULT NULL,
+  `PRECIO` float DEFAULT NULL,
+  PRIMARY KEY (`NUMERO`,`CODIGO`),
+  KEY `FK_PRODUCTO1` (`CODIGO`),
+  CONSTRAINT `FK_FACTURA1` FOREIGN KEY (`NUMERO`) REFERENCES `tb_factura` (`NUMERO`),
+  CONSTRAINT `FK_PRODUCTO1` FOREIGN KEY (`CODIGO`) REFERENCES `tb_productos` (`CODIGO`)
+);
+
+SELECT * FROM tb_clientes;
+SELECT * FROM tb_vendedor;
+SELECT * FROM tb_factura1;
+SELECT * FROM tb_items_facturas1;
+SELECT * FROM tb_productos;	
+SELECT * FROM tb_factura;
+
+INSERT INTO `ventas_jugos`.`tb_factura1`
+(`NUMERO`,
+`FECHA`,
+`DNI`,
+`MATRICULA`,
+`IMPUESTO`)
+VALUES
+('100',
+'2021-01-01',
+'1471156710',
+'235',
+0.1);
+
+INSERT INTO tb_items_facturas1
+VALUES('100', '1002767', 100, 25),
+('100', '1004327', 200, 25),
+('100', '1013793', 300, 25);
+
+SELECT A.FECHA, SUM(B.CANTIDAD*B.PRECIO) AS VENTA_TOTAL
+FROM tb_factura1 A
+INNER JOIN
+tb_items_facturas1 B
+ON A.NUMERO = B.NUMERO
+GROUP BY A.FECHA;
+
+INSERT INTO `ventas_jugos`.`tb_factura1`
+(`NUMERO`,
+`FECHA`,
+`DNI`,
+`MATRICULA`,
+`IMPUESTO`)
+VALUES
+('101',
+'2021-01-01',
+'1471156710',
+'235',
+0.1);
+
+INSERT INTO tb_items_facturas1
+VALUES('101', '1002767', 100, 25),
+('101', '1004327', 200, 25),
+('101', '1013793', 300, 25);
+
+-- CREANDO EL TRIGGER
+
+DELIMITER //
+
+CREATE TRIGGER TG_FACTURACION_INSERT
+AFTER INSERT ON tb_items_facturas1
+FOR EACH ROW BEGIN
+
+	DELETE FROM tb_facturacion;
+	INSERT INTO tb_facturacion
+	SELECT A.FECHA, SUM(B.CANTIDAD*B.PRECIO) AS VENTA_TOTAL
+	FROM tb_factura1 A
+	INNER JOIN
+	tb_items_facturas1 B
+	ON A.NUMERO = B.NUMERO
+	GROUP BY A.FECHA;
+
+END //
+
+INSERT INTO `ventas_jugos`.`tb_factura1`
+(`NUMERO`,
+`FECHA`,
+`DNI`,
+`MATRICULA`,
+`IMPUESTO`)
+VALUES
+('107',
+'2021-01-01',
+'1471156710',
+'235',
+0.1);
+
+INSERT INTO tb_items_facturas1
+VALUES('107', '1002767', 100, 25),
+('107', '1004327', 500, 25),
+('107', '1013793', 400, 25);
+
+
+SELECT 
+    *
+FROM
+    tb_facturacion;
+
+

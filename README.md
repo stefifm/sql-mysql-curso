@@ -26,3 +26,13 @@ Además, consultas complejas, filtros, joins, subconsultas, vistas, transaccione
 - Unión de tablas con UNION y UNION ALL
 - Funciones de fecha, strings, matemáticas y de conversión de datos
 - Realizando informes
+
+## Comandos DML: Manipulación de datos con MySQL
+
+- Transacciones
+- Triggers
+- Autoincremento
+- Valores por defecto
+- Creación de tablas con primary key y foreign key
+- Inclusión de datos
+- Uso de UPDATE con FROM (INNER JOIN)
