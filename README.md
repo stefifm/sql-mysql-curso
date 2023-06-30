@@ -36,3 +36,14 @@ Además, consultas complejas, filtros, joins, subconsultas, vistas, transaccione
 - Creación de tablas con primary key y foreign key
 - Inclusión de datos
 - Uso de UPDATE con FROM (INNER JOIN)
+
+## Procedures en SQL: Ejecución de código en MySQL
+- Stored Procedures
+- Variables
+- Atribuyendo valor con SELECT INTO
+- Control de errores
+- Parámetros
+- Manipulando datos de una tabla con Stored Procedures
+- Control de flujo con IF-THEN-ELSE, IF-THEN-ELSEIF, WHILE y CASE.
+- Cursor
+- Creando funciones

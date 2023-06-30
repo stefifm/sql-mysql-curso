@@ -1,0 +1,7 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `dando_valor`()
+BEGIN
+DECLARE n INTEGER DEFAULT 990;
+SELECT n;
+SET n = 300;
+SELECT n;
+END

@@ -1,0 +1,5 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `calcular_edad`()
+BEGIN
+UPDATE tabla_de_clientes
+SET EDAD = TIMESTAMPDIFF(YEAR, FECHA_DE_NACIMIENTO, CURDATE());
+END

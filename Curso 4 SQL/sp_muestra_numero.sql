@@ -1,0 +1,4 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `muestra_numero`()
+BEGIN
+SELECT (2023-2000) AS RESULTADO;
+END
