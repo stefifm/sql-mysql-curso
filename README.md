@@ -47,3 +47,10 @@ Además, consultas complejas, filtros, joins, subconsultas, vistas, transaccione
 - Control de flujo con IF-THEN-ELSE, IF-THEN-ELSEIF, WHILE y CASE.
 - Cursor
 - Creando funciones
+
+## SQL en MySQL: Proyecto final
+- Creación de base de datos
+- Uso de funciones aleatorias
+- Generando una venta
+- Solucionando problemas con el PK
+- Triggers mejorados con Stored Procedures
