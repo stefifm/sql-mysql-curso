@@ -54,3 +54,9 @@ Además, consultas complejas, filtros, joins, subconsultas, vistas, transaccione
 - Generando una venta
 - Solucionando problemas con el PK
 - Triggers mejorados con Stored Procedures
+
+## Administración de MySQL: Seguridad y optimización Parte 1
+- Backups
+- Restauración de backups
+- Tuning y mecanismos de almacenamientos
+- Cambio de directorios
